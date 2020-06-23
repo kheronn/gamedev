@@ -6,10 +6,6 @@ canvas {
   display: block;
 }
 
-@font-face {
-  font-family: fonteZelda;
-  src: url('fonteTelaInicial.otf');
-} 
 
 main {
   background-image: url('imagens/telaInicial.png');
