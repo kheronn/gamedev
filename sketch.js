@@ -70,15 +70,29 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   cenario = new Cenario(imagemCenario, 3);
   personagem = new Personagem(matrizPersonagem, imagemPersonagem, 0, 110, 135, 220, 270);
-  inimigo = new Inimigo(matrizInimigo, imagemInimigo, width - 52, 52, 52, 104, 104);
+  inimigo = new Inimigo(matrizInimigo, imagemInimigo, width - 52, 52, 52, 104, 104,10,200);
   // somDoJogo.loop();
+}
+
+function keyPressed() {
+  if (key === 'ArrowUp') {
+    personagem.pula()
+//somDoPulo.play()
+  }
 }
 
 function draw() {
   cenario.exibe();
   cenario.move();
+
   personagem.exibe();
+  personagem.aplicaGravidade();
+
   inimigo.exibe();
   inimigo.move();
-}
 
+  if (personagem.estaColidindo(inimigo)) {
+    console.log('colidiu')
+    noLoop()
+  }
+}
